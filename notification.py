@@ -3,6 +3,7 @@
 # notify2.Notification('test',message='tset').show()
 
 import time
+from mycricbuzz import get_cric_data
 from win10toast import ToastNotifier
 toaster = ToastNotifier()
 
@@ -10,9 +11,18 @@ toaster = ToastNotifier()
 #                    "Python is 10 seconds awsm!",
 #                    duration=10)
 
-toaster.show_toast("Example two",
-                   "This notification is in it's own thread!",
-                   icon_path='./cricket.ico',
+
+cric_dict = get_cric_data()
+batting_team = cric_dict.get('batting_team')
+bowling_team = cric_dict.get('bowling_team')
+title = cric_dict.get('title')
+score = cric_dict.get('score')
+info = cric_dict.get('info')
+
+toaster.show_toast(title,
+                   batting_team +" VS "+ bowling_team + "\n" 
+                    "Score :: "+score + "\n"+ info,
+                #    icon_path='./cricket.ico',
                    duration=5,
                    threaded=True)                   
 
