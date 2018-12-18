@@ -59,7 +59,6 @@ def myfunction2():
     # checking the accuracy of the our model we pass (X_test,y_test)S
     print(knn.score(X_test,y_test))
 
-# myfunction2()
 
 def myfunction3():
     data = pd.read_csv('./new_births_total_number_estimated.csv',)
@@ -70,4 +69,4 @@ def myfunction3():
     
 
     
-myfunction2()
+myfunction1()
